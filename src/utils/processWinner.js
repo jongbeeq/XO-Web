@@ -7,9 +7,8 @@ export default function processWinner(playerInput, endLength) {
         for (let i = 1; i < endLength; i++) {
             const next = horizontolInitial + i
             horizontol.push(next)
-            horizontolEnd = horizontolEnd && playerInput[next] !== '' && playerInput[next] === playerInput[horizontolInitial]
+            horizontolEnd = (horizontolEnd) && (playerInput[next] || playerInput[next] === 0) && (playerInput[next] === playerInput[horizontolInitial])
         }
-        console.log('horizontolEnd', horizontolEnd)
         if (horizontolEnd) return horizontol
 
         const verticalInitial = j
@@ -18,9 +17,8 @@ export default function processWinner(playerInput, endLength) {
         for (let i = 1; i < endLength; i++) {
             const next = verticalInitial + (endLength * i)
             vertical.push(next)
-            verticalEnd = verticalEnd && playerInput[next] !== '' && (playerInput[next] === playerInput[verticalInitial])
+            verticalEnd = verticalEnd && (playerInput[next] || playerInput[next] === 0) && (playerInput[next] === playerInput[verticalInitial])
         }
-        console.log('verticalEnd', verticalEnd)
         if (verticalEnd) return vertical
     }
 
@@ -28,11 +26,10 @@ export default function processWinner(playerInput, endLength) {
     const diagonalLeft = [diagonalLeftInitial]
     let diagonalLeftEnd = true
     for (let i = 1; i < endLength; i++) {
-        const next = diagonalLeftInitial + ((endLength + 1) * i)
+        const next = diagonalLeftInitial + ((Number(endLength) + 1) * i)
         diagonalLeft.push(next)
-        diagonalLeftEnd = diagonalLeftEnd && playerInput[next] !== '' && (playerInput[next] === playerInput[diagonalLeftInitial])
+        diagonalLeftEnd = diagonalLeftEnd && (playerInput[next] || playerInput[next] === 0) && (playerInput[next] === playerInput[diagonalLeftInitial])
     }
-    console.log('diagonalLeftEnd', diagonalLeftEnd)
     if (diagonalLeftEnd) return diagonalLeft
 
     const diagonalRightInitial = endLength - 1
@@ -41,8 +38,7 @@ export default function processWinner(playerInput, endLength) {
     for (let i = 1; i < endLength; i++) {
         const next = diagonalRightInitial + ((endLength - 1) * i)
         diagonalRight.push(next)
-        diagonalRightEnd = diagonalRightEnd && playerInput[next] !== '' && (playerInput[next] === playerInput[diagonalRightInitial])
+        diagonalRightEnd = diagonalRightEnd && (playerInput[next] || playerInput[next] === 0) && (playerInput[next] === playerInput[diagonalRightInitial])
     }
-    console.log('diagonalRightEnd', diagonalRightEnd)
     if (diagonalRightEnd) return diagonalRight
 }

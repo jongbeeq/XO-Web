@@ -10,7 +10,7 @@ export default function InputXO({ index }) {
     const handleOnClick = () => {
         if (clickAble) return
         playerInput[index] = sidePlayer
-        setPlayerInput(playerInput)
+        setPlayerInput([...playerInput])
         setRound(round + 1)
     }
 

@@ -5,7 +5,7 @@ export default function XOTable() {
     const { endLength, inputData } = usePlay()
 
     const lengthStyle = {
-        width: '500px',
+        width: '100%',
         display: 'grid',
         gap: '0.75rem',
         gridTemplateRows: `repeat(${endLength}, minmax(0, 1fr))`,
