@@ -32,6 +32,7 @@ export default function PlayContext({ children }) {
     useEffect(() => {
         setEndLength(3)
         setRound(1)
+        setPlayerInput(inputData)
     }, [match])
 
     useEffect(() => {

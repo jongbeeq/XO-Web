@@ -23,9 +23,9 @@ export default function InputXO({ index }) {
     return (
         <button onClick={handleOnClick} className={"aspect-square relative border border-black" + clickAbleStyle + winnerStyle}>
             <XOData dataOfBox={dataOfBox} />
-            <p className="absolute top-0 left-0 text-[12px]">
+            {/* <p className="absolute top-0 left-0 text-[12px]">
                 {'index: ' + index}
-            </p>
+            </p> */}
         </button>
     )
 }
